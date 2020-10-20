@@ -19,9 +19,9 @@ function sanitize($string = '', $is_filename = FALSE)
 
 $sessionParam = null;
 if(get_magic_quotes_gpc()){
-  $sessionParam = stripslashes($_POST['sessionJSON']);
+  $sessionParam = stripslashes(file_get_contents('php://input'));
 }else{
-  $sessionParam = $_POST['sessionJSON'];
+  $sessionParam = file_get_contents('php://input');
 }
 $session = json_decode($sessionParam);
 
