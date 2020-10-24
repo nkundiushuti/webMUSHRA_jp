@@ -76,7 +76,7 @@ function addPagesToPageManager(_pageManager, _pages) {
     } else {
       var pageConfig = _pages[i];
       if (pageConfig.type == "generic") {
-        _pageManager.addPage(new GenericPage(_pageManager, pageConfig));
+        _pageManager.addPage(new GenericPage(_pageManager, pageTemplateRenderer, pageConfig, session, config.language));
       } else if (pageConfig.type == "volume") {
         var volumePage = new VolumePage(_pageManager, audioContext, audioFileLoader, pageConfig, config.bufferSize, errorHandler, config.language);
         _pageManager.addPage(volumePage);
@@ -101,7 +101,7 @@ function addPagesToPageManager(_pageManager, _pages) {
         var likertMultiStimulusPage = new LikertMultiStimulusPage(pageManager, pageTemplateRenderer, pageConfig, audioContext, config.bufferSize, audioFileLoader, session, errorHandler, config.language);
         _pageManager.addPage(likertMultiStimulusPage);
       } else if (pageConfig.type == "finish") {
-        var finishPage = new FinishPage(_pageManager, session, dataSender, pageConfig, config.language);
+        var finishPage = new FinishPage(_pageManager, pageTemplateRenderer, pageConfig, session, config.language, dataSender);
         _pageManager.addPage(finishPage);
       } else {
 
