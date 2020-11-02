@@ -87,11 +87,11 @@ function addPagesToPageManager(_pageManager, _pages) {
         _pageManager.addPage(new SpatialPage(_pageManager, pageTemplateRenderer, pageConfig, session, config.language, audioContext, config.bufferSize, audioFileLoader, errorHandler));
       } else if (pageConfig.type == "paired_comparison") {
         var pcPageManager = new PairedComparisonPageManager();
-        pcPageManager.createPages(_pageManager, pageTemplateRenderer, pageConfig, audioContext, config.bufferSize, audioFileLoader, session, errorHandler, config.language);
+        pcPageManager.createPages(_pageManager, pageTemplateRenderer, pageConfig, session, config.language, audioContext, config.bufferSize, audioFileLoader, errorHandler);
         pcPageManager = null;
       } else if (pageConfig.type == "bs1116") {
         var bs1116PageManager = new BS1116PageManager();
-        bs1116PageManager.createPages(_pageManager, pageTemplateRenderer, pageConfig, audioContext, config.bufferSize, audioFileLoader, session, errorHandler, config.language);
+        bs1116PageManager.createPages(_pageManager, pageTemplateRenderer, pageConfig, session, config.language, audioContext, config.bufferSize, audioFileLoader, errorHandler);
         bs1116PageManager = null;
       } else if (pageConfig.type == "likert_single_stimulus") {
         var likertSingleStimulusPageManager = new LikertSingleStimulusPageManager();
