@@ -95,7 +95,7 @@ function addPagesToPageManager(_pageManager, _pages) {
         bs1116PageManager = null;
       } else if (pageConfig.type == "likert_single_stimulus") {
         var likertSingleStimulusPageManager = new LikertSingleStimulusPageManager();
-        likertSingleStimulusPageManager.createPages(_pageManager, pageTemplateRenderer, pageConfig, audioContext, config.bufferSize, audioFileLoader, session, errorHandler, config.language);
+        likertSingleStimulusPageManager.createPages(_pageManager, pageTemplateRenderer, pageConfig, session, config.language, audioContext, config.bufferSize, audioFileLoader, errorHandler);
         likertSingleStimulusPageManager = null;
       } else if (pageConfig.type == "likert_multi_stimulus") {
         var likertMultiStimulusPage = new LikertMultiStimulusPage(pageManager, pageTemplateRenderer, pageConfig, session, config.language, audioContext, config.bufferSize, audioFileLoader, errorHandler);

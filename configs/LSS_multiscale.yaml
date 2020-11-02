@@ -1,5 +1,4 @@
-# Likert single stimulus page 1 stimulus, two Likert scales with respecitvely 4 and 2 responses
-
+# Single stimulus trial with 2 stimuli randomly selected out of 3 and two Likert scales with respecitvely 4 and 2 responses
 
 testname: Single Stimulus with multiple Likert scales
 testId: lss_multiscale
@@ -8,25 +7,25 @@ stopOnErrors: true
 showButtonPreviousPage: true
 remoteService: service/write.php
 
-
-
 pages:
-
-    - type: likert_single_stimulus
-      id: lss3
-      name: likert
-      content: Two out of three stimuli will be randomly selected. In order to select the first two, set randomize to false in the config file.
-      showWaveform: true
-      mustPlayback: ended
-      mustRate: true
-      randomize: true
-      maxStimuli: 2
-      stimuli:
-          C1: configs/resources/audio/mono_c1.wav
-          C2: configs/resources/audio/mono_c2.wav
-          C3: configs/resources/audio/mono_c3.wav
-      response:
-        -
+  - type: likert_single_stimulus
+    id: lss3
+    name: likert
+    content: Two out of three stimuli will be randomly selected. In order to select the first two, set randomize to false in the config file.
+    showWaveform: true
+    mustPlayback: ended
+    mustRate: true
+    randomize: true
+    maxStimuli: 2
+    stimuli:
+      C1: configs/resources/audio/mono_c1.wav
+      C2: configs/resources/audio/mono_c2.wav
+      C3: configs/resources/audio/mono_c3.wav
+    questionnaire:
+      - type: likert
+        name: likert-question1
+        label: Question 1
+        response:
           - value: not at all
             label: Not at all
             img: configs/resources/images/star_off.png
@@ -46,8 +45,11 @@ pages:
             label: Much
             img: configs/resources/images/star_off.png
             imgSelected: configs/resources/images/star_on.png
-            imgHigherResponseSelected: configs/resources/images/star_on.png    
-        -
+            imgHigherResponseSelected: configs/resources/images/star_on.png
+      - type: likert
+        name: likert-question2
+        label: Question 2
+        response:
           - value: not at all
             label: Not at all
             img: configs/resources/images/star_off.png
@@ -59,10 +61,8 @@ pages:
             imgSelected: configs/resources/images/star_on.png
             imgHigherResponseSelected: configs/resources/images/star_on.png
 
-
-
-    - type: finish
-      name: Thank you
-      content: Thank you for attending
-      showResults: true
-      writeResults: true
+  - type: finish
+    name: Thank you
+    content: Thank you for attending
+    showResults: true
+    writeResults: true

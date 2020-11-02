@@ -236,15 +236,10 @@ foreach ($session->participant as $key => $value) {
 	array_push($input, $key);
 }
 array_push($input,  "trial_id");
-$ratingCount = count($session->trials[0]->responses[0]->stimulusRating);
-if($ratingCount > 1) {
-    for($i =0; $i < $ratingCount; $i++){
-        array_push($input, "stimuli_rating" . ($i+1));
-    }
-} else {
-    array_push($input, "stimuli_rating");
+foreach ($session->trials[0]->responses[0]->stimulusRating as $key => $value) {
+	array_push($input, $key);
 }
-array_push($input, "stimuli", "rating_time");
+array_push($input, "stimulus", "rating_time");
 array_push($lssCSVdata, $input);
 
 foreach($session->trials as $trial) {
@@ -253,12 +248,14 @@ foreach($session->trials as $trial) {
 		foreach ($trial->responses as $response) {
 			$write_lss = true; 
 			
-				$results = array($session->testId);
+			$results = array($session->testId);
 			foreach ($session->participant as $key => $value) {
 				array_push($results, $value);
 			}
             array_push($results, $trial->id);
-            $results = array_merge($results, $response->stimulusRating);
+			foreach ($response->stimulusRating as $key => $value) {
+				array_push($results, $value);
+			}
             array_push($results, $response->stimulus, $response->time);
 		  
 		  	array_push($lssCSVdata, $results); 
