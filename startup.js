@@ -76,29 +76,29 @@ function addPagesToPageManager(_pageManager, _pages) {
     } else {
       var pageConfig = _pages[i];
       if (pageConfig.type == "generic") {
-        _pageManager.addPage(new GenericPage(_pageManager, pageTemplateRenderer, pageConfig, session, config.language));
+        _pageManager.addPage(new GenericPage(_pageManager, pageTemplateRenderer, pageConfig, session, config.language, dataSender));
       } else if (pageConfig.type == "volume") {
-        var volumePage = new VolumePage(_pageManager, pageTemplateRenderer, pageConfig, session, config.language, audioContext, config.bufferSize, audioFileLoader, errorHandler);
+        var volumePage = new VolumePage(_pageManager, pageTemplateRenderer, pageConfig, session, config.language, dataSender, audioContext, config.bufferSize, audioFileLoader, errorHandler);
         _pageManager.addPage(volumePage);
       } else if (pageConfig.type == "mushra") {
-        var mushraPage = new MushraPage(_pageManager, pageTemplateRenderer, pageConfig, session, config.language, audioContext, config.bufferSize, audioFileLoader, errorHandler, mushraValidator);
+        var mushraPage = new MushraPage(_pageManager, pageTemplateRenderer, pageConfig, session, config.language, dataSender, audioContext, config.bufferSize, audioFileLoader, errorHandler, mushraValidator);
         _pageManager.addPage(mushraPage);
       } else if ( pageConfig.type == "spatial"){
-        _pageManager.addPage(new SpatialPage(_pageManager, pageTemplateRenderer, pageConfig, session, config.language, audioContext, config.bufferSize, audioFileLoader, errorHandler));
+        _pageManager.addPage(new SpatialPage(_pageManager, pageTemplateRenderer, pageConfig, session, config.language, dataSender, audioContext, config.bufferSize, audioFileLoader, errorHandler));
       } else if (pageConfig.type == "paired_comparison") {
         var pcPageManager = new PairedComparisonPageManager();
-        pcPageManager.createPages(_pageManager, pageTemplateRenderer, pageConfig, session, config.language, audioContext, config.bufferSize, audioFileLoader, errorHandler);
+        pcPageManager.createPages(_pageManager, pageTemplateRenderer, pageConfig, session, config.language, dataSender, audioContext, config.bufferSize, audioFileLoader, errorHandler);
         pcPageManager = null;
       } else if (pageConfig.type == "bs1116") {
         var bs1116PageManager = new BS1116PageManager();
-        bs1116PageManager.createPages(_pageManager, pageTemplateRenderer, pageConfig, session, config.language, audioContext, config.bufferSize, audioFileLoader, errorHandler);
+        bs1116PageManager.createPages(_pageManager, pageTemplateRenderer, pageConfig, session, config.language, dataSender, audioContext, config.bufferSize, audioFileLoader, errorHandler);
         bs1116PageManager = null;
       } else if (pageConfig.type == "likert_single_stimulus") {
         var likertSingleStimulusPageManager = new LikertSingleStimulusPageManager();
-        likertSingleStimulusPageManager.createPages(_pageManager, pageTemplateRenderer, pageConfig, session, config.language, audioContext, config.bufferSize, audioFileLoader, errorHandler);
+        likertSingleStimulusPageManager.createPages(_pageManager, pageTemplateRenderer, pageConfig, session, config.language, dataSender, audioContext, config.bufferSize, audioFileLoader, errorHandler);
         likertSingleStimulusPageManager = null;
       } else if (pageConfig.type == "likert_multi_stimulus") {
-        var likertMultiStimulusPage = new LikertMultiStimulusPage(pageManager, pageTemplateRenderer, pageConfig, session, config.language, audioContext, config.bufferSize, audioFileLoader, errorHandler);
+        var likertMultiStimulusPage = new LikertMultiStimulusPage(pageManager, pageTemplateRenderer, pageConfig, session, config.language, dataSender, audioContext, config.bufferSize, audioFileLoader, errorHandler);
         _pageManager.addPage(likertMultiStimulusPage);
       } else if (pageConfig.type == "finish") {
         var finishPage = new FinishPage(_pageManager, pageTemplateRenderer, pageConfig, session, config.language, dataSender);
