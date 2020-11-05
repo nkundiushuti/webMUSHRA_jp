@@ -187,7 +187,7 @@ $input = array("session_test_id");
 foreach ($session->participant as $key => $value) {
 	array_push($input, $key);
 }
-array_push($input,  "trial_id", "stimuli_rating", "stimuli", "rating_time");
+array_push($input,  "trial_id", "stimulus_rating", "stimulus", "rating_time");
 array_push($lmsCSVdata, $input);
 
 
@@ -200,7 +200,11 @@ foreach($session->trials as $trial) {
 			foreach ($session->participant as $key => $value) {
 				array_push($results, $value);
 			}  
-			array_push($results,  $trial->id, " $response->stimulusRating ", $response->stimulus, $response->time);
+			array_push($results, $trial->id);
+			foreach ($response->stimulusRating as $key => $value) {
+				array_push($results, $value);
+			}
+            array_push($results, $response->stimulus, $response->time);
 		  
 		  	array_push($lmsCSVdata, $results); 
 			
