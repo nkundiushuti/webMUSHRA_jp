@@ -12,6 +12,7 @@ pages:
     id: lss1
     name: likert
     content: test description
+    mustPlayback: processUpdate
     stimuli:
       C1: configs/resources/audio/mono_c1.wav
       C2: configs/resources/audio/mono_c2.wav
@@ -30,6 +31,30 @@ pages:
             img: configs/resources/images/star_off.png
             imgSelected: configs/resources/images/star_on.png
             imgHigherResponseSelected: configs/resources/images/star_on.png
+      - type: text
+        name: text-question
+        label: text
+      - type: number
+        name: number-question
+        label: number
+      - type: date
+        name: date-question
+        label: date
+      - type: long_text
+        name: long_text-question
+        label: long text
+      - type: toggle
+        name: toggle-question
+        label: toggle
+        response:
+          - value: no
+            label: no
+          - value: yes
+            label: yes
+      - type: checkbox
+        name: checkbox-question
+        label: checkbox
+        optional: true
 
   - type: finish
     name: Thank you
