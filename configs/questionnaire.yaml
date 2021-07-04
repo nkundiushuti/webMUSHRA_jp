@@ -1,0 +1,86 @@
+testname: Questionnaire Showcase
+testId: questionnaire-showcase
+bufferSize: 2048
+stopOnErrors: true
+showButtonPreviousPage: false
+remoteService: 
+pages:
+  - type: generic
+    id: questionnaire
+    name: Questionnaire Showcase
+    content: <p>Overview of questionnaire UI elements</p>
+    questionnaire:
+      - type: checkbox
+        name: checkbox1
+        label: "Checkbox:"
+        selected: true # TODO
+      - type: toggle
+        name: toggle2
+        label: "Toggle:"
+        response:
+          - value: ""
+            label: no
+          - value: yes
+            label: yes
+            selected: true
+      - type: text
+        name: text3
+        label: "Text:"
+      - type: email
+        name: email4
+        label: "Email:"
+      - type: password
+        name: password5
+        label: "Password:"
+      - type: date
+        name: date6
+        label: "Date:"
+      - type: file
+        name: file7
+        label: "File:"
+      - type: number
+        name: number8
+        label: "Number:"
+        # min: 0
+        # max: 100
+        default: 42
+        step: 0.1 # TODO
+        optional: true
+      - type: slider
+        name: slider9
+        label: "Slider:"
+        min: 0
+        max: 100
+        default: 42
+        step: 0.1 # TODO
+        optional: true
+      - type: likert
+        name: likert10
+        label: "Likert scale:"
+        response:
+          - value: 0
+            label: alpha
+            shortcut: q
+          - value: 1
+            label: beta
+            shortcut: w
+            selected: true # TODO
+          - value: 2
+            label: gamma
+            shortcut: e
+      - type: dropdown
+        name: dropdown11
+        label: "Dropdown:"
+        response:
+          - value: 0
+            label: alpha
+          - value: 1
+            label: beta
+            selected: true
+          - value: 2
+            label: gamma
+      - type: long_text
+        name: long_text12
+        label: "Longform text:"
+        optional: true
+  
