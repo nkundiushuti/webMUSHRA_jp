@@ -131,8 +131,7 @@ The finish page must be the last page of the experiment.
 * **type** must be finish.
 * **name** Name of the page (is shown as title).
 * **content** Content (HTML) of the page. The content is shown on the upper part of the page.
-* **showResults** The results are shown to the participant.  
-* **writeResults** The results are sent to the remote service (which writes the results into a file).
+* **showResults** The results are shown to the participant.
 
 
 ## Results
