@@ -1,0 +1,24 @@
+testname: User Creation Demo
+testId: create-user
+stopOnErrors: true
+remoteService: //webmushra-backend.herokuapp.com/create-user-generate-page
+pages:
+  - type: generic
+    id: new-user
+    name: Create new user
+    send: forget
+    content: <p>Fill in your email address and choose a password</p>
+    questionnaire:
+      - type: email
+        name: email
+        label: "Email:"
+      - type: password
+        name: password
+        label: "Password:"
+      - type: password
+        name: password-repeated
+        label: "Repeat Password:"
+  # - type: generic
+  #   id: user-created
+  #   name: User created
+  #   content: <p>User created successfully</p><p>Go back <a href="?config=session-restore.yaml" target="_self">to the login form</a></p>

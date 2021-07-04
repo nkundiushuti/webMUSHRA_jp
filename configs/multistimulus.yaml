@@ -1,0 +1,37 @@
+testname: Multi Stimulus Questionnaires
+testId: ms
+bufferSize: 2048
+stopOnErrors: true
+showButtonPreviousPage: true
+remoteService: service/write.php
+
+pages:
+  - type: likert_multi_stimulus
+    id: lms
+    name: Multi stimulus page with text field and slider each
+    content: test description
+    mustPlayback: processUpdate
+    stimuli:
+        C1: configs/resources/audio/mono_c1.wav
+        C2: configs/resources/audio/mono_c2.wav
+        C3: configs/resources/audio/mono_c3.wav
+    stimulusQuestionnaire:
+      - type: text
+        name: genre
+        label: Genre
+        default: ""
+      - type: slider
+        name: confidence
+        label: Confidence
+        optional: true
+        min: 0
+        max: 100
+    questionnaire:
+      - type: long_text
+        name: feedback
+        label: Feedback
+  - type: finish
+    name: Thank you
+    content: That's all!
+    showResults: true
+    writeResults: true

@@ -1,0 +1,234 @@
+testname: Virtual Barcelona Soundwalk
+testId: barcelona-soundwalk
+bufferSize: 2048
+stopOnErrors: true
+showButtonPreviousPage: false
+showProgressBar: false
+remoteService: //webmushra-backend.herokuapp.com/adaptive-navigation
+pages:
+  - type: generic
+    id: login
+    name: Start
+    content: >-
+      <p>Welcome to the virtual Barcelona soundwalk.</p>
+      <p>Experience the sounds of Barcelona like you were there. Discover all ten destinations.</p>
+      <p>All sounds downloaded from <a href="https://freesound.org/">Freesound</a>, see respective pages for links.</p>
+  - type: likert_single_stimulus
+    id: placa-catalunya
+    name: Pla&ccedil;a de Catalunya
+    content: <a href="https://freesound.org/s/66619/">66619__susoooo__23-08-08-20-00-plaza-de-catalunya</a>
+    send: forget
+    stimuli:
+        C1: soundwalk/66619__susoooo__23-08-08-20-00-plaza-de-catalunya.mp3
+    questionnaire:
+      - type: long_text
+        label: Impressions
+        optional: true
+      - type: likert
+        name: go
+        label: "Go"
+        response:
+          - value: 2
+            label: north-west
+          - value: 3
+            label: north
+          - value: 4
+            label: east
+          - value: 7
+            label: south-east
+          - value: 8
+            label: south
+  - type: likert_single_stimulus
+    id: parc-guell
+    name: Parc G&uuml;ell
+    content: <a href="https://freesound.org/s/66603/">66603__susoooo__20-08-08-16-31-parque-guell</a>
+    send: forget
+    stimuli:
+        C1: soundwalk/66603__susoooo__20-08-08-16-31-parque-guell.mp3
+    questionnaire:
+      - type: long_text
+        label: Impressions
+        optional: true
+      - type: likert
+        name: go
+        label: "Go"
+        response:
+          - value: 1
+            label: south-east
+          - value: 3
+            label: east
+  - type: likert_single_stimulus
+    id: sagrada-familia
+    name: Sagrada Familia
+    content: <a href="https://freesound.org/s/63713/">63713__susoooo__20-08-08-12-34-sagrada-familia-subida-ascensor</a>
+    send: forget
+    stimuli:
+        C1: soundwalk/63713__susoooo__20-08-08-12-34-sagrada-familia-subida-ascensor.mp3
+    questionnaire:
+      - type: long_text
+        label: Impressions
+        optional: true
+      - type: likert
+        name: go
+        label: "Go"
+        response:
+          - value: 2
+            label: west
+          - value: 1
+            label: south
+          - value: 4
+            label: south-east
+  - type: likert_single_stimulus
+    id: parc-ciutadella
+    name: Parc de la Ciutadella
+    content: <a href="https://freesound.org/s/66615/">66615__susoooo__22-08-08-18-00-embarcadero-parque-de-la-ciudadela</a>
+    send: forget
+    stimuli:
+        C1: soundwalk/66615__susoooo__22-08-08-18-00-embarcadero-parque-de-la-ciudadela.mp3
+    questionnaire:
+      - type: long_text
+        label: Impressions
+        optional: true
+      - type: likert
+        name: go
+        label: "Go"
+        response:
+          - value: 3
+            label: north-west
+          - value: 1
+            label: west
+          - value: 7
+            label: south-west
+          - value: 6
+            label: south
+          - value: 5
+            label: south-east
+  - type: likert_single_stimulus
+    id: barceloneta
+    name: Barceloneta
+    content: <a href="https://freesound.org/s/107567/">107567__sonsdebarcelona__barcelonetabeach</a>
+    send: forget
+    stimuli:
+        C1: soundwalk/107567__sonsdebarcelona__barcelonetabeach.mp3
+    questionnaire:
+      - type: long_text
+        label: Impressions
+        optional: true
+      - type: likert
+        name: go
+        label: "Go"
+        response:
+          - value: 6
+            label: west
+          - value: 4
+            label: north-west
+  - type: likert_single_stimulus
+    id: plaza-san-jaume
+    name: Pla&ccedil;a Sant Jaume
+    content: <a href="https://freesound.org/s/66604/">66604__susoooo__21-01-08-10-30-plaza-san-jaume</a>
+    send: forget
+    stimuli:
+        C1: soundwalk/66604__susoooo__21-01-08-10-30-plaza-san-jaume.mp3
+    questionnaire:
+      - type: long_text
+        label: Impressions
+        optional: true
+      - type: likert
+        name: go
+        label: "Go"
+        response:
+          - value: 7
+            label: west
+          - value: 4
+            label: north
+          - value: 5
+            label: east
+  - type: likert_single_stimulus
+    id: la-rambla
+    name: La Rambla
+    content: <a href="https://freesound.org/s/19043/">19043__bram__barca-versus-arsenal-preview</a>
+    send: forget
+    stimuli:
+        C1: soundwalk/19043__bram__barca-versus-arsenal-preview.mp3
+    questionnaire:
+      - type: long_text
+        label: Impressions
+        optional: true
+      - type: likert
+        name: go
+        label: "Go"
+        response:
+          - value: 8
+            label: west
+          - value: 1
+            label: north-west
+          - value: 4
+            label: north-east
+          - value: 6
+            label: east
+  - type: likert_single_stimulus
+    id: rambla-del-raval
+    name: Rambla del Raval
+    content: <a href="https://freesound.org/s/51181/">51181__jaume-orejuela__aval1</a>
+    send: forget
+    stimuli:
+        C1: soundwalk/51181__jaume-orejuela__aval1.mp3
+    questionnaire:
+      - type: long_text
+        label: Impressions
+        optional: true
+      - type: likert
+        name: go
+        label: "Go"
+        response:
+          - value: 9
+            label: south-west
+          - value: 1
+            label: north
+          - value: 7
+            label: east
+          - value: 10
+            label: south
+  - type: likert_single_stimulus
+    id: estadi-olimpic
+    name: Estadi Olimpic de Montjuic
+    content: <a href="https://freesound.org/s/66607/">66607__susoooo__21-08-08-14-30-estadio-olimpico-de-montjuic</a>
+    send: forget
+    stimuli:
+        C1: soundwalk/66607__susoooo__21-08-08-14-30-estadio-olimpico-de-montjuic.mp3
+    questionnaire:
+      - type: long_text
+        label: Impressions
+        optional: true
+      - type: likert
+        name: go
+        label: "Go"
+        response:
+          - value: 8
+            label: north-east
+          - value: 10
+            label: east
+  - type: likert_single_stimulus
+    id: castell-montjuic
+    name: Castell de Montjuic
+    content: <a href="https://freesound.org/s/66606/">66606__susoooo__21-08-08-13-06-castillo-montjuic</a>
+    send: forget
+    stimuli:
+        C1: soundwalk/66606__susoooo__21-08-08-13-06-castillo-montjuic.mp3
+    questionnaire:
+      - type: long_text
+        label: Impressions
+        optional: true
+      - type: likert
+        name: go
+        label: "Go"
+        response:
+          - value: 9
+            label: west
+          - value: 8
+            label: north
+  - type: finish
+    name: "The End!"
+    content: You've reached the end (which is impossible)
+    send: false
+  

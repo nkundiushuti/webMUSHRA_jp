@@ -1,0 +1,53 @@
+testname: Session Restore Demo
+testId: session-restore
+bufferSize: 2048
+stopOnErrors: true
+showButtonPreviousPage: false
+remoteService: //webmushra-backend.herokuapp.com/resume-session
+pages:
+  - type: generic
+    id: login
+    name: Login
+    send: remember
+    content: >-
+      <p>Welcome to our listening test</p>
+      <p>Login below to continue</p>
+      <p>If you don't have an account yet, <a href="?config=session-restore-create-user.yaml" target="_self">sign up first</a>.</p>
+    questionnaire:
+      - type: email
+        name: email
+        label: "Email:"
+      - type: password
+        name: password
+        label: "Password:"
+  - type: likert_single_stimulus
+    id: single
+    name: "Some audio files to listen to"
+    send: forget
+    content: test description
+    mustPlayback: processUpdate
+    stimuli:
+        C1: configs/resources/audio/mono_c1.wav
+        C2: configs/resources/audio/mono_c2.wav
+        C3: configs/resources/audio/mono_c3.wav
+    questionnaire:
+      - type: text
+        name: genre
+        label: Genre
+        default: ""
+        optional: true
+      - type: slider
+        name: confidence
+        label: Confidence
+        optional: true
+        min: 0
+        max: 100
+      - type: long_text
+        name: feedback
+        label: Feedback
+        optional: true
+  - type: finish
+    name: "You're all done!"
+    content: Thank you for participating
+    send: false
+  
