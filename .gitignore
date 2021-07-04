@@ -5,6 +5,7 @@ dist
 builds/
 results/*
 !results/results_will_be_added_here.txt
+db.json
 
 #####=== Node ===#####
 
