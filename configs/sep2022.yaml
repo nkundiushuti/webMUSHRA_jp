@@ -22,17 +22,18 @@ pages:
     name: Part 1 of 4: evaluating the DISTORTION of the extracted SPEECH SIGNAL
     content: Now, we evaluate the <b>DISTORTION of the extracted SPEECH SIGNAL</b>.<br>&nbsp;<br>&nbsp;<br><b>Listen to these examples to UNDERSTAND the task. Remember, from the training, to not get confused between DISTORTION and INTRUSIVENESS.</b><br>&nbsp;<br><b>DISTORTION scale:</b> very distorted, farily distorted, somewhat distorted, slightly distorted, not distorted.</b><br>&nbsp;<br>&nbsp;<br>&nbsp;<br><audio controls><source src="configs/podcastmix/audio/ConvTasNet/ex_1/mixture.wav" type="audio/ogg">Your browser does not support the audio element.</audio><br>&nbsp;<br>Example 1 (a podcast): <b>The SPEECH SIGNAL in this sample was NOT DISTORTED</b>.<br>&nbsp;<br>&nbsp;<br>&nbsp;<br><audio controls><source src="configs/podcastmix/audio/ConvTasNet/ex_1/s0_estimate.wav" type="audio/ogg">Your browser does not support the audio element.</audio><br>&nbsp;<br>Example 2 (a speech separation): <b>The SPEECH SIGNAL in this sample was VERY DISTORTED</b>.
 
-  - type: likert_multi_stimulus
+ - type: likert_multi_stimulus
     id: speech_1_SIG
-    name: Evaluating the DISTORTION of the extracted SPEECH SIGNAL (1/8)
+    name: Evaluating the DISTORSION of the extracted singing voice signal (1/5)
     mustRate: true
-    content: Rate the <b>SPEECH</b> extracted from this podcast:<br>&nbsp;<br><audio controls><source src="configs/podcastmix/audio/ConvTasNet/ex_2/mixture.wav" type="audio/ogg">Your browser does not support the audio element.</audio><br>&nbsp;<br>Attending <b>ONLY</b> to the <b>SPEECH SIGNAL</b>, select the category which best describes the sample you just heard. <b>The SPEECH SIGNAL in this sample was:</b><br>&nbsp;<br><i>(remember: we are NOT evaluating the background music interference)</i>
+    content: Rate the <b>singing voice</b> extracted from this mixture:<br>&nbsp;<br><audio controls><source src="configs/resources/wav/Song1_mix.wav" type="audio/ogg">Your browser does not support the audio element.</audio>.<br>&nbsp;<br>You may use the original vocal stem as a reference:<br>&nbsp;<br>Y<audio controls><source src="configs/resources/wav/Song1_vocals.wav" type="audio/ogg">Your browser does not support the audio element.</audio>
     stimuli:
-      convtasnet: configs/podcastmix/audio/ConvTasNet/ex_2/s0_estimate.wav
-      unet: configs/podcastmix/audio/UNet/ex_2/s0_estimate.wav
+      sys1: configs/resources/wav/Song1_1.wav
+      sys2: configs/resources/wav/Song1_2.wav
+      sys3: configs/resources/wav/Song1_3.wav
     response:
       - value: 1
-        label: <br>very<br>distorted
+        label: <br>very<br>Very bad
         img: configs/podcastmix/images/star_off.png
         imgSelected: configs/podcastmix/images/star_on.png
         imgHigherResponseSelected: configs/podcastmix/images/star_on.png
@@ -56,6 +57,7 @@ pages:
         img: configs/podcastmix/images/star_off.png
         imgSelected: configs/podcastmix/images/star_on.png
         imgHigherResponseSelected: configs/podcastmix/images/star_on.png
+
 
   # - type: generic
   #   id: instructions
