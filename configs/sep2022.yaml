@@ -28,12 +28,11 @@ pages:
     mustRate: true
     content: Rate the <b>SPEECH</b> extracted from this podcast:<br>&nbsp;<br><audio controls><source src="configs/podcastmix/audio/ConvTasNet/ex_2/mixture.wav" type="audio/ogg">Your browser does not support the audio element.</audio><br>&nbsp;<br>Attending <b>ONLY</b> to the <b>SPEECH SIGNAL</b>, select the category which best describes the sample you just heard. <b>The SPEECH SIGNAL in this sample was:</b><br>&nbsp;<br><i>(remember: we are NOT evaluating the background music interference)</i>
     stimuli:
-      sys1: configs/resources/wav/Song1_1.wav
-      sys2: configs/resources/wav/Song1_2.wav
-      sys3: configs/resources/wav/Song1_3.wav
+      convtasnet: configs/podcastmix/audio/ConvTasNet/ex_2/s0_estimate.wav
+      unet: configs/podcastmix/audio/UNet/ex_2/s0_estimate.wav
     response:
       - value: 1
-        label: <br>very<br>Very bad
+        label: <br>very<br>distorted
         img: configs/podcastmix/images/star_off.png
         imgSelected: configs/podcastmix/images/star_on.png
         imgHigherResponseSelected: configs/podcastmix/images/star_on.png
