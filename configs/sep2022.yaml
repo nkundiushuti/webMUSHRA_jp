@@ -1,0 +1,190 @@
+# Likert multi stimulus page 1 stimuli, 4 responses
+
+testname: User study on singing voice separation from commercial music mixtures
+testId: MOS_voicesep
+bufferSize: 2048
+stopOnErrors: true
+showButtonPreviousPage: true
+remoteService: service/write.php
+pages:
+  - type: generic
+    id: instructions
+    name: Basic Instructions
+    content: This perceptual test takes around <b>20 minutes</b>.<br>&nbsp;<br>It is <b>mandatory</b> to use a decent playback system (studio monitors or good headphones)!<br>&nbsp;<br>&nbsp;<br><b>We provide as references the input mixture and the original vocal stem.</b>.<br>&nbsp;<br>In case you need timbral or temporal cues for your rating, the two tracks serve this purpose.<br>&nbsp;<br>&nbsp;<br><b>You will be asked to rate the overall quality of separations from podcasts along two axes: DISTORTION and INTRUSIVENESS</b>. <br>&nbsp;<br>&nbsp;<br>Please, <b>finish and submit the results</b>. Otherwise, they won't be sent.<br>&nbsp;<br><i>(use a laptop/desktop computer with Chrome or Firefox, since some audios did not load with Safari or with phones)</i>
+
+  - type: generic
+    id: instructions
+    name: Part 0 of 4: Training
+    content: <b>Listen to these examples to UNDERSTAND the difference between DISTORTION and INTRUSIVENESS.</b><br>&nbsp;<br><b>DISTORTION scale:</b> very distorted, farily distorted, somewhat distorted, slightly distorted, not distorted.</b><br>&nbsp;<br><b>INTRUSIVENESS scale:</b> very intrusive, somewhat intrusive, noticeable but not intrusive, slightly noticeable, not noticeable.</b><br>&nbsp;<br>&nbsp;<br>&nbsp;<br><audio controls><source src="configs/podcastmix/audio/ConvTasNet/ex_1/mixture.wav" type="audio/ogg">Your browser does not support the audio element.</audio><br>&nbsp;<br>Example 1 (a podcast): <b>The SPEECH SIGNAL was NOT DISTORTED</b> and <b>the BACKGROUND MUSIC was VERY INTRUSIVE</b>.<br>&nbsp;<br>&nbsp;<br>&nbsp;<br><audio controls><source src="configs/podcastmix/audio/ConvTasNet/ex_1/s0_estimate.wav" type="audio/ogg">Your browser does not support the audio element.</audio><br>&nbsp;<br>Example 2 (a speech separation): <b>The SPEECH SIGNAL was VERY DISTORTED</b> and <b>the BACKGROUND MUSIC was SLIGHTLY NOTICEABLE</b>.<br>&nbsp;<br>&nbsp;<br>&nbsp;<br><audio controls><source src="configs/podcastmix/audio/UNet/ex_1/s1_estimate.wav" type="audio/ogg">Your browser does not support the audio element.</audio><br>&nbsp;<br>Example 3 (a music separation): <b>The BACKGROUND MUSIC was SLIGHTLY DISTORTED</b> and <b>the SPEECH SIGNAL was SOMEWHAT INTRUSIVE</b>.
+
+  - type: generic
+    id: instructions
+    name: Part 1 of 4: evaluating the DISTORTION of the extracted SPEECH SIGNAL
+    content: Now, we evaluate the <b>DISTORTION of the extracted SPEECH SIGNAL</b>.<br>&nbsp;<br>&nbsp;<br><b>Listen to these examples to UNDERSTAND the task. Remember, from the training, to not get confused between DISTORTION and INTRUSIVENESS.</b><br>&nbsp;<br><b>DISTORTION scale:</b> very distorted, farily distorted, somewhat distorted, slightly distorted, not distorted.</b><br>&nbsp;<br>&nbsp;<br>&nbsp;<br><audio controls><source src="configs/podcastmix/audio/ConvTasNet/ex_1/mixture.wav" type="audio/ogg">Your browser does not support the audio element.</audio><br>&nbsp;<br>Example 1 (a podcast): <b>The SPEECH SIGNAL in this sample was NOT DISTORTED</b>.<br>&nbsp;<br>&nbsp;<br>&nbsp;<br><audio controls><source src="configs/podcastmix/audio/ConvTasNet/ex_1/s0_estimate.wav" type="audio/ogg">Your browser does not support the audio element.</audio><br>&nbsp;<br>Example 2 (a speech separation): <b>The SPEECH SIGNAL in this sample was VERY DISTORTED</b>.
+
+  - type: likert_multi_stimulus
+    id: speech_1_SIG
+    name: Evaluating the DISTORTION of the extracted SPEECH SIGNAL (1/8)
+    mustRate: true
+    content: Rate the <b>SPEECH</b> extracted from this podcast:<br>&nbsp;<br><audio controls><source src="configs/podcastmix/audio/ConvTasNet/ex_2/mixture.wav" type="audio/ogg">Your browser does not support the audio element.</audio><br>&nbsp;<br>Attending <b>ONLY</b> to the <b>SPEECH SIGNAL</b>, select the category which best describes the sample you just heard. <b>The SPEECH SIGNAL in this sample was:</b><br>&nbsp;<br><i>(remember: we are NOT evaluating the background music interference)</i>
+    stimuli:
+      convtasnet: configs/podcastmix/audio/ConvTasNet/ex_2/s0_estimate.wav
+      unet: configs/podcastmix/audio/UNet/ex_2/s0_estimate.wav
+    response:
+      - value: 1
+        label: <br>very<br>distorted
+        img: configs/podcastmix/images/star_off.png
+        imgSelected: configs/podcastmix/images/star_on.png
+        imgHigherResponseSelected: configs/podcastmix/images/star_on.png
+      - value: 2
+        label: <br>fairly<br>distorted
+        img: configs/podcastmix/images/star_off.png
+        imgSelected: configs/podcastmix/images/star_on.png
+        imgHigherResponseSelected: configs/podcastmix/images/star_on.png
+      - value: 3
+        label: <br>somewhat<br>distorted
+        img: configs/podcastmix/images/star_off.png
+        imgSelected: configs/podcastmix/images/star_on.png
+        imgHigherResponseSelected: configs/podcastmix/images/star_on.png
+      - value: 4
+        label: <br>slightly<br>distorted
+        img: configs/podcastmix/images/star_off.png
+        imgSelected: configs/podcastmix/images/star_on.png
+        imgHigherResponseSelected: configs/podcastmix/images/star_on.png
+      - value: 5
+        label: <br>not<br>distorted
+        img: configs/podcastmix/images/star_off.png
+        imgSelected: configs/podcastmix/images/star_on.png
+        imgHigherResponseSelected: configs/podcastmix/images/star_on.png
+
+  - type: generic
+    id: instructions
+    name: Part 2 of 4: evaluating the DISTORTION of the extracted BACKGROUND MUSIC
+    content: Now, we evaluate the <b>DISTORTION of the extracted BACKGROUND MUSIC</b>.<br>&nbsp;<br>&nbsp;<br><b>Listen to these examples to UNDERSTAND the task. Remember, from the training, to not get confused between DISTORTION and INTRUSIVENESS.</b><br>&nbsp;<br><b>DISTORTION scale:</b> very distorted, farily distorted, somewhat distorted, slightly distorted, not distorted.</b><br>&nbsp;<br>&nbsp;<br>&nbsp;<br><audio controls><source src="configs/podcastmix/audio/ConvTasNet/ex_1/mixture.wav" type="audio/ogg">Your browser does not support the audio element.</audio><br>&nbsp;<br>Example 1 (a podcast): <b>The BACKGROUND MUSIC in this sample was NOT DISTORTED</b>.<br>&nbsp;<br>&nbsp;<br>&nbsp;<br><audio controls><source src="configs/podcastmix/audio/UNet/ex_1/s1_estimate.wav" type="audio/ogg">Your browser does not support the audio element.</audio><br>&nbsp;<br>Example 2 (a music separation): <b>The BACKGROUND MUSIC in this sample was SLIGHTLY DISTORTED</b>.
+
+  - type: likert_multi_stimulus
+    id: music_1_SIG
+    name: Evaluating the DISTORTION of the extracted BACKGROUND MUSIC (1/8)
+    mustRate: true
+    content: Rate the <b>BACKGROUND MUSIC</b> extracted from this podcast:<br>&nbsp;<br><audio controls><source src="configs/podcastmix/audio/ConvTasNet/ex_2/mixture.wav" type="audio/ogg">Your browser does not support the audio element.</audio><br>&nbsp;<br>Attending <b>ONLY</b> to the <b>BACKGROUND MUSIC</b>, select the category which best describes the sample you just heard. <b>The BACKGROUND MUSIC in this sample was:</b><br>&nbsp;<br><i>(remember: we are NOT evaluating the speech signal interference)</i>
+    stimuli:
+      convtasnet: configs/podcastmix/audio/ConvTasNet/ex_2/s1_estimate.wav
+      unet: configs/podcastmix/audio/UNet/ex_2/s1_estimate.wav
+    response:
+      - value: 1
+        label: <br>very<br>distorted
+        img: configs/podcastmix/images/star_off.png
+        imgSelected: configs/podcastmix/images/star_on.png
+        imgHigherResponseSelected: configs/podcastmix/images/star_on.png
+      - value: 2
+        label: <br>fairly<br>distorted
+        img: configs/podcastmix/images/star_off.png
+        imgSelected: configs/podcastmix/images/star_on.png
+        imgHigherResponseSelected: configs/podcastmix/images/star_on.png
+      - value: 3
+        label: <br>somewhat<br>distorted
+        img: configs/podcastmix/images/star_off.png
+        imgSelected: configs/podcastmix/images/star_on.png
+        imgHigherResponseSelected: configs/podcastmix/images/star_on.png
+      - value: 4
+        label: <br>slightly<br>distorted
+        img: configs/podcastmix/images/star_off.png
+        imgSelected: configs/podcastmix/images/star_on.png
+        imgHigherResponseSelected: configs/podcastmix/images/star_on.png
+      - value: 5
+        label: <br>not<br>distorted
+        img: configs/podcastmix/images/star_off.png
+        imgSelected: configs/podcastmix/images/star_on.png
+        imgHigherResponseSelected: configs/podcastmix/images/star_on.png
+
+  - type: generic
+    id: instrucions
+    name: Part 3 of 4: evaluating the INTERFERENCE of the BACKGROUND MUSIC into the extracted SPEECH SIGNAL
+    content: Now, we evaluate the <b>INTERFERENCE of the BACKGROUND MUSIC into the extracted SPEECH SIGNAL</b>.<br>&nbsp;<br>&nbsp;<br><b>Listen to these examples to UNDERSTAND the task. Remember, from the training, to not get confused between DISTORTION and INTRUSIVENESS.</b><br>&nbsp;<br><b>INTERFERENCE scale:</b> very intrusive, somewhat intrusive, noticeable but not intrusive, slightly noticeable, not noticeable.</b><br>&nbsp;<br>&nbsp;<br>&nbsp;<br><audio controls><source src="configs/podcastmix/audio/ConvTasNet/ex_1/mixture.wav" type="audio/ogg">Your browser does not support the audio element.</audio><br>&nbsp;<br>Example 1 (a podcast): <b>The BACKGROUND MUSIC in this sample was VERY INTRUSIVE</b>.<br>&nbsp;<br>&nbsp;<br>&nbsp;<br><audio controls><source src="configs/podcastmix/audio/ConvTasNet/ex_1/s0_estimate.wav" type="audio/ogg">Your browser does not support the audio element.</audio><br>&nbsp;<br>Example 2 (a speech separation): <b>The BACKGROUND MUSIC in this sample was SLIGHTLY NOTICEABLE</b>.
+
+  - type: likert_multi_stimulus
+    id: speech_1_BAK
+    name: Evaluating the INTERFERENCE of the BACKGROUND MUSIC into the extracted SPEECH SIGNAL (1/8)
+    mustRate: true
+    content: Rate the <b>SPEECH</b> extracted from this podcast:<br>&nbsp;<br><audio controls><source src="configs/podcastmix/audio/ConvTasNet/ex_2/mixture.wav" type="audio/ogg">Your browser does not support the audio element.</audio><br>&nbsp;<br>Attending <b>ONLY</b> to the <b>BACKGROUND MUSIC</b>, select the category which best describes the sample you just heard. <b>The BACKGROUND MUSIC in this sample was:</b><br>&nbsp;<br><i>(remember: we are NOT evaluating speech distortion)</i>
+    stimuli:
+      convtasnet: configs/podcastmix/audio/ConvTasNet/ex_2/s0_estimate.wav
+      unet: configs/podcastmix/audio/UNet/ex_2/s0_estimate.wav
+    response:
+      - value: 1
+        label: <br>very<br>intrusive
+        img: configs/podcastmix/images/star_off.png
+        imgSelected: configs/podcastmix/images/star_on.png
+        imgHigherResponseSelected: configs/podcastmix/images/star_on.png
+      - value: 2
+        label: <br>somewhat<br>intrusive
+        img: configs/podcastmix/images/star_off.png
+        imgSelected: configs/podcastmix/images/star_on.png
+        imgHigherResponseSelected: configs/podcastmix/images/star_on.png
+      - value: 3
+        label: <br>noticeable but<br>not intrusive
+        img: configs/podcastmix/images/star_off.png
+        imgSelected: configs/podcastmix/images/star_on.png
+        imgHigherResponseSelected: configs/podcastmix/images/star_on.png
+      - value: 4
+        label: <br>slightly<br>noticeable
+        img: configs/podcastmix/images/star_off.png
+        imgSelected: configs/podcastmix/images/star_on.png
+        imgHigherResponseSelected: configs/podcastmix/images/star_on.png
+      - value: 5
+        label: <br>not<br>noticeable
+        img: configs/podcastmix/images/star_off.png
+        imgSelected: configs/podcastmix/images/star_on.png
+        imgHigherResponseSelected: configs/podcastmix/images/star_on.png
+
+
+  - type: generic
+    id: instructions
+    name: Part 4 of 4: evaluating the INTERFERENCE of the SPEECH SIGNAL into the extracted BACKGROUND MUSIC
+    content: And finally, we evaluate <b>INTERFERENCE of the SPEECH SIGNAL into the extracted BACKGROUND MUSIC</b>.<br>&nbsp;<br>&nbsp;<br><b>Listen to these examples to UNDERSTAND the task. Remember, from the training, to not get confused between DISTORTION and INTRUSIVENESS.</b><br>&nbsp;<br><b>INTERFERENCE scale:</b> very intrusive, somewhat intrusive, noticeable but not intrusive, slightly noticeable, not noticeable.</b><br>&nbsp;<br>&nbsp;<br>&nbsp;<br><audio controls><source src="configs/podcastmix/audio/ConvTasNet/ex_1/mixture.wav" type="audio/ogg">Your browser does not support the audio element.</audio><br>&nbsp;<br>Example 1 (a podcast): <b>The SPEECH SIGNAL in this sample was VERY INTRUSIVE</b>.<br>&nbsp;<br>&nbsp;<br>&nbsp;<br><audio controls><source src="configs/podcastmix/audio/UNet/ex_1/s1_estimate.wav" type="audio/ogg">Your browser does not support the audio element.</audio><br>&nbsp;<br>Example 2 (a music separation): <b>The SPEECH SIGNAL in this sample was SLIGHTLY NOTICEABLE</b>.
+
+  - type: likert_multi_stimulus
+    id: music_1_BAK
+    name: Evaluating the INTERFERENCE of the SPEECH SIGNAL into the extracted BACKGROUND MUSIC (1/8)
+    mustRate: true
+    content: Rate the <b>BACKGROUND MUSIC</b> extracted from this podcast:<br>&nbsp;<br><audio controls><source src="configs/podcastmix/audio/ConvTasNet/ex_2/mixture.wav" type="audio/ogg">Your browser does not support the audio element.</audio><br>&nbsp;<br>Attending <b>ONLY</b> to the <b>SPEECH</b>, select the category which best describes the sample you just heard. <b>The SPEECH in this sample was:</b><br>&nbsp;<br><i>(remember: we are NOT evaluating background music distortion)</i>
+    stimuli:
+      convtasnet: configs/podcastmix/audio/ConvTasNet/ex_2/s1_estimate.wav
+      unet: configs/podcastmix/audio/UNet/ex_2/s1_estimate.wav
+    response:
+      - value: 1
+        label: <br>very<br>intrusive
+        img: configs/podcastmix/images/star_off.png
+        imgSelected: configs/podcastmix/images/star_on.png
+        imgHigherResponseSelected: configs/podcastmix/images/star_on.png
+      - value: 2
+        label: <br>somewhat<br>intrusive
+        img: configs/podcastmix/images/star_off.png
+        imgSelected: configs/podcastmix/images/star_on.png
+        imgHigherResponseSelected: configs/podcastmix/images/star_on.png
+      - value: 3
+        label: <br>noticeable but<br>not intrusive
+        img: configs/podcastmix/images/star_off.png
+        imgSelected: configs/podcastmix/images/star_on.png
+        imgHigherResponseSelected: configs/podcastmix/images/star_on.png
+      - value: 4
+        label: <br>slightly<br>noticeable
+        img: configs/podcastmix/images/star_off.png
+        imgSelected: configs/podcastmix/images/star_on.png
+        imgHigherResponseSelected: configs/podcastmix/images/star_on.png
+      - value: 5
+        label: <br>not<br>noticeable
+        img: configs/podcastmix/images/star_off.png
+        imgSelected: configs/podcastmix/images/star_on.png
+        imgHigherResponseSelected: configs/podcastmix/images/star_on.png
+
+  - type: finish
+    name: Thank you
+    content: Thank you for attending! Please, introduce your name (or invented name) for an easy user tracking.
+    showResults: false
+    writeResults: true
+    questionnaire:
+      - type: text
+        label: Name
+        name: name
+        optional: false
